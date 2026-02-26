@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int main() {  
+
+srand(time(0)); //This makes the number random each time you run the code
+double randomNum = rand() % 101;
+
+double userinput;
+cout << "Guess a number between 1-100! ";
+cin >> userinput;
+
+if (userinput == randomNum) {
+cout << "You're correct, good job! "; 
+//If you're wrong, then it will say the sentence on the bottom, but if you are correct, then it will say the sentence at the top
+} else {
+cout << "Good guess, but you're wrong \n" << "the correct answer is " << randomNum;
+
+return 0;
+}
+}
+
+
