@@ -22,6 +22,12 @@ int main() {
 	    cout << "\nInvalid input, please enter a number." << endl;
 	    continue;
 	}
+	
+	//Check if the range is correct
+	    if (userinput < 1 || userinput > 100) {
+	        cout << "It's supposed to be between 1-100 ";
+	        continue;
+	    }
 
 		if (userinput == randomNum) {
 			cout << "\nYou're correct, good job! " << endl;
