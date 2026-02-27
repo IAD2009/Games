@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <limits>
 using namespace std;
 
 int main() {
@@ -9,23 +10,33 @@ int main() {
 
 	double userinput = 0;
 	double guessiz = 0 + 1;
-	
+	//The loop allows you to continue the game, despite getting the number wrong
 	while (userinput != randomNum) {
-		cout << " Guess a number between 1-100! ";
+		cout << "\nGuess a number between 0-100! ";
 		cin >> userinput;
+		cin.ignore(10000, '\n');
+		//prevents code from crashing if letter is typed in 
+			if (cin.fail()) {
+	    cin.clear();
+	    cin.ignore(10000, '\n');
+	    cout << "\nInvalid input, please enter a number." << endl;
+	    continue;
+	}
 
 		if (userinput == randomNum) {
-			cout << "You're correct, good job! " << endl;
-			cout << "You took " << guessiz << " guesses" << endl;
+			cout << "\nYou're correct, good job! " << endl;
+			cout << "\nYou took " << guessiz << " guesses" << endl;
 //If you're wrong, then it will say the sentence on the bottom, but if you are correct, then it will say the sentence at the top
 		} else if (userinput < randomNum) {
-			cout << "Good guess, but your number is too low \n";
+			cout << "\nGood guess, but your number is too low ";
 		} else {
-			cout << "Good guess, but your number is too high \n";
+			cout << "\nGood guess, but your number is too high ";
 		}
 	
 	    guessiz++;
 	}
-	return 0;
-}
+	
 
+	return 0;
+
+}
